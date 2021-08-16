@@ -1,0 +1,239 @@
+<div class="row">
+  <div class="col-lg-12 card">
+    <mat-toolbar class="portlet">
+      <span> Allocating Resource</span>
+      <ng-container class="button-right ">
+        <a class="button-right" matTooltip="Create User" (click)="save(1,'value')">
+          <mat-icon>save</mat-icon>
+
+        </a>
+      </ng-container>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+
+  </div>
+  <div class="col-lg-12 card">
+    <div class="inner">
+      <div class="row">
+        <div class="col-lg-2">
+          <button type="button"
+          class="btn button-rounded" (click)="manipulationOfWeek('decrement')"><mat-icon class="mat-icon.align-center">arrow_back_ios</mat-icon></button>
+        </div>
+        <div class="col-lg-7">
+          <mat-form-field>
+            <div style="text-align:center;">
+              <input matInput type="text" [readonly]=true value="{{startDay}} - {{endDay}}">
+            </div>
+
+          </mat-form-field>
+        </div>
+        <div class="col-lg-2">
+          <button type="button" (click)="manipulationOfWeek('increment')"
+          class="btn button-rounded"><mat-icon class="mat-icon.align-center">arrow_forward_ios</mat-icon></button>
+        </div>
+      </div>
+
+      <div>
+        
+      </div>
+
+      <div class="header-elements">
+        <div class="row">
+          <div class="col-md-12">
+            <h5>Organization Name : <b>Par Pacific</b>
+            </h5>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="row content-create">
+  <div class="col-md-12 card">
+    <table>
+
+      <thead>
+        <ng-container>
+          <tr style="border-bottom:1px solid #bebeca">
+            <td>Resource</td>
+            <td>Project</td>
+            <td>Sub - Project</td>
+            <td *ngFor="let dates of days;let last=last">{{dates.split('-')[0]}} <br>{{dates.split('-')[1]}}</td>
+            <td class="column-width-total-hours">Total Hours</td>
+            <td>Comments</td>
+            <td>Actions</td>
+          </tr>
+        </ng-container>
+      </thead>
+
+      <tbody>
+        <ng-container *ngFor="let input of record.data;let i =index;let last = last">
+          <tr style="border-bottom:1px solid #bebeca">
+            <td>
+              <mat-form-field class="width-matform-select">
+                <mat-label>Resource</mat-label>
+                <mat-select value='Balaguru'>
+                  <mat-option value='Balaguru'> Balaguru</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-select">
+                <mat-label>Project</mat-label>
+                <mat-select [(ngModel)]="input.project"
+                  [disabled]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+                  <mat-option [value]="'demo'">Demo</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+
+              <mat-form-field class="width-matform-select">
+                <mat-label>Sub - Project</mat-label>
+                <mat-select [(ngModel)]="input.subProject"
+                  [disabled]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+                  <mat-option [value]="'sub-demo'">Sub Demo</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day0.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day0')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day1.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day1')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day2.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day2')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day3.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day3')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day4.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day4')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day5.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day5')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <!-- <mat-label>Sub - Project</mat-label> -->
+                <span matPrefix> 08 / &nbsp; &nbsp;</span>
+                <input matInput type="number" min="0.00" [(ngModel)]="input.day6.hours"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true">
+              </mat-form-field>
+              <a (click)="addcomment(i,'day6')">
+                <mat-icon class="mat-icon-font" *ngIf="last ? true : enableEdit && enableEditIndex == i ? true : false">
+                  comment</mat-icon>
+              </a>
+            </td>
+            <td class="column-width-total-hours"><span>{{input.day0.hours + input.day1.hours + input.day2.hours
+                +input.day3.hours + input.day4.hours + input.day5.hours + input.day6.hours}}</span></td>
+            <td>
+              <mat-form-field class="width-matform-input">
+                <mat-label>Comments</mat-label>
+                <!-- <span matPrefix> 08 / &nbsp; &nbsp;</span> -->
+                <textarea matInput type="number" min="0.00" [(ngModel)]="input.comments"
+                  [readonly]="last ? false : enableEdit && enableEditIndex == i ? false : true"></textarea>
+              </mat-form-field>
+
+            </td>
+
+            <td>
+              <button *ngIf="enableEdit && enableEditIndex == i" mat-flat-button color=accent (click)="enableEdit=false"
+                class="btn page-secondary-action-btn">Cancel</button>
+              <button *ngIf="enableEdit && enableEditIndex == i" mat-flat-button color=primary id="saveBtn"
+                class="btn page-primary-action-btn" (click)="enableEdit=false" type="submit">Save</button>
+              <button mat-flat-button color=primary *ngIf="!enableEdit && !last " (click)="enableEditMethod($event, i)">
+                edit
+              </button>
+
+              <a *ngIf="i==record.data.length - 1" (click)="addRow(i)">
+                <mat-icon>note_add</mat-icon>
+              </a>
+            </td>
+          </tr>
+
+        </ng-container>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td></td>
+          <td>Total Allocated Hours</td>
+          <td>{{sumofdayallocation('day0')}}</td>
+          <td>{{sumofdayallocation('day1')}}</td>
+          <td>{{sumofdayallocation('day2')}}</td>
+          <td>{{sumofdayallocation('day3')}}</td>
+          <td>{{sumofdayallocation('day4')}}</td>
+          <td>{{sumofdayallocation('day5')}}</td>
+          <td>{{sumofdayallocation('day6')}}</td>
+        </tr>
+      </tfoot>
+    </table>
+
+  </div>
+</div>
+<div class="row content-create">
+  <div class="col-md-12 ">
+    <app-list></app-list>
+  </div>
+</div>

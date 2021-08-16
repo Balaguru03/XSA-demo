@@ -1,0 +1,8 @@
+.para-margin{
+    margin-left:50px
+}
+
+  .example-header-image {
+    background-image: url('../../../assets/Images/sierra-logo.png');
+    background-size: cover;
+  }

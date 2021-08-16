@@ -1,0 +1,72 @@
+<div class="container">
+    
+    <div class="row row-padding">
+        <div class="col-lg-12">
+           
+            <form [formGroup]="registerForm">
+                <div class="col-lg-12 grid-item text-center">
+                    <br />
+                    <img src="../../../assets/Images/sierra-logo.png" class="logo">
+                    <br />
+                    <!-- <br> -->
+                </div>
+                <div class="col-lg-12 grid-item text-center">
+                    <h5 class="text-center"><b>Register </b></h5>
+                </div>
+                <div class="col-lg-12 grid-item text-center">
+                    <mat-form-field class="example-full-width form-group">
+                        <mat-label>First name</mat-label>
+                        <input matInput type="text" formControlName="firstName">
+                        <mat-error *ngIf="registerForm.controls.firstName.hasError('required')">Please enter the First Name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 grid-item content text-center">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Last name</mat-label>
+                        <input matInput type="text" formControlName="lastName">
+                        <mat-error *ngIf="registerForm.controls.lastName.hasError('required')">Please enter the Last Name
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 grid-item text-center">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email">
+                        <mat-error *ngIf="registerForm.controls.email.hasError('required')">Please enter the Valid Email
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 grid-item text-center">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input matInput type="password" formControlName="password">
+                        <mat-error *ngIf="registerForm.controls.password.hasError('required')">Please enter the Valid
+                            Password</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-lg-12 grid-item text-center">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Mobile</mat-label>
+                        <input matInput type="number" formControlName="mobile">
+                        <mat-error *ngIf="registerForm.controls.mobile.hasError('required')">Please enter the Valid
+                            Mobile</mat-error>
+                    </mat-form-field>
+                </div>
+                
+              
+                <div class="col-lg-12 grid-item text-center">
+                    <button class="btn-primary example-full-width" (click)="registerUser()" [disabled]="submit" mat-flat-button>Submit</button>
+                </div>
+                <br />
+                <div class="col-lg-12 grid-item text-center">
+                    <p >
+                        Already have a account <a href="#javascript;:" [routerLink]="['../login']">Login</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+      
+  
+    </div>
+   

@@ -1,0 +1,39 @@
+table {
+    width: 100%;
+  }
+  
+  
+.portlet {
+    background: #fff!important;
+}
+.button-right{
+    text-align: right;
+    display: absolute;
+    left:calc(100% - 410px)
+}
+.cursor{
+    cursor: pointer;
+}
+.mat-column-SNO {
+    width: 32px;
+    border-right: 1px solid currentColor;
+    padding-right: 24px;
+    text-align: center;
+  }
+
+  .mat-column-name{
+      padding-left: 24px;
+      width: 20%;
+      
+  }
+  .mat-column-status{
+    padding-left: 24px;
+    width: 100%;
+    
+}
+
+.input-margin{
+    margin-left: 15px;
+    font-size: 14px;
+    width: 20%;
+}

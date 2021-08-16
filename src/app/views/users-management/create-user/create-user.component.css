@@ -1,0 +1,15 @@
+.grid-item {
+    flex: 1 0 auto;
+    
+
+}
+form{
+    width: 100%;
+    min-height: 500px;
+}
+.example-full-width{
+    width: 30%;
+    height: 20%;
+    font-size: 14px!important;
+    margin-left: 15px;
+}

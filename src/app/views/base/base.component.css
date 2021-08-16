@@ -1,0 +1,147 @@
+/* mat-toolbar {
+    background: #004a9f;
+    color: white;
+    height: 80px
+}
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    font-size: 2rem;
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
+
+.menu-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1rem;
+
+ 
+}
+mat-icon {
+    margin-right: 8px;
+}
+
+.logo {
+    margin-top: 2px;
+    width: 70px;
+    height: 70px;
+}
+
+.name {
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.designation {
+    margin-top: 2px;
+    font-size: 0.7rem;
+    color: lightgrey;
+}
+
+mat-divider {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.text-right{
+    text-align: right;
+    display: absolute;
+    width:calc(100% - 80px)
+}
+
+.avatar{
+    margin-top: 2px;
+    border-radius: 50%;
+} */
+
+
+mat-sidenav-container {
+    height: 100%;
+    /* margin-top: 10px; */
+   
+}
+
+
+mat-toolbar{
+height: 50px;
+}
+ mat-sidenav mat-nav-list .chevron-button {
+          transition: 300ms ease-in-out;
+          transform: rotate(0deg);
+          right: 0;
+        
+          /* right: 5px; */
+          top: 0;
+          float: right;
+          position: absolute;
+  }
+
+  .sidenav-button{
+   cursor: pointer;
+    margin-left: 15px;
+    color: #fff;
+  }
+  .logo{
+      width: 40px;
+      height: 40px;
+  }
+  .content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 32px;
+    font-size: 2rem;
+}
+
+.text-right{
+    text-align: right;
+    /* display: absolute; */
+    width:calc(100% - 80px)
+}
+
+mat-sidenav-content{
+    background-color: #eeeded;
+}
+.color-white{
+    color: #fff;
+}
+
+mat-toolbar{
+    background-color: #0a0e26!important;
+}
+.font-headers{
+    font-size: 14px;
+}
+
+.font-headers mat-icon{
+    margin-top: 3px;
+    font-size: 14px!important;
+}
+
+a{
+    cursor: pointer;
+}
+
+.selected {
+    background-color: #f5f5f5;
+    width: 100%;
+    color: #333;
+}

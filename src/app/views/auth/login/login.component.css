@@ -1,0 +1,44 @@
+div{
+    display: block!important;
+}
+h2{
+    left:50%
+}
+.content {
+    top: 50%;
+    left: 50%;
+}
+
+.grid-item {
+    flex: 1 0 auto;
+    
+}
+.register{
+    display: flex;
+}
+.text-right{
+    text-align: right;
+}
+.form-group{
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    
+}
+.row-padding{
+    padding-top:30px;
+    padding-bottom:25px;
+}
+.register-padding{
+    padding:15px;
+}
+.example-full-width{
+    width: 100%;
+}
+
+.logo{
+    vertical-align: middle;
+    text-align: center;
+    width: 90px;
+    height: 90px;
+}

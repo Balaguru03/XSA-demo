@@ -1,0 +1,131 @@
+<!-- <mat-toolbar class="mat-elevation-z8">
+    <img class="logo mat-elevation-z8" src="../../../assets/Images/sierra-logo.png" />
+    
+   
+    <div class="text-right">
+        <img class="logo avatar" src="../../../assets/Images/3011270.png">
+      
+    </div>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" mode="side" opened=true  class="mat-elevation-z8">
+        <button mat-button class="menu-button">
+            <mat-icon>home</mat-icon>
+           <a [routerLink]="['/roles']"> Roles </a>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>info</mat-icon>
+            <span>About</span>
+        </button>
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+           <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+     
+    -->
+
+<mat-toolbar *ngIf="userInformation">
+
+    <img class="logo" src="../../../assets/Images/sierra-logo.png" />
+    <mat-icon mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded"
+        [ngClass]="{'rotated': isExpanded}">view_headline</mat-icon>
+
+
+    <div class="text-right">
+        <span class="text-right font-headers color-white"> Hi, {{userInformation.firstName }}
+            {{userInformation.lastName}}
+
+            <a>
+                <mat-icon class="color-white" (click)="logout()">settings_power</mat-icon>
+            </a>
+        </span>
+    </div>
+</mat-toolbar>
+<mat-sidenav-container autosize *ngIf="userInformation">
+    <mat-sidenav #sidenav mode="side" opened="true">
+        <ng-container *ngFor="let aside of menu">
+            <mat-nav-list *ngIf="aside['menuPermission']['hasAccess']['isReadable']  ">
+
+                <!-- <> -->
+                    <a  mat-list-item [routerLink]="[aside['menuPermission']['url']]" routerLinkActive="selected" *ngIf="aside.menuPermission.submenu.length == '0'">
+                        <mat-icon mat-list-icon>home</mat-icon> 
+                        <span *ngIf="isExpanded" class="menu-name">{{aside['menuPermission']['menuName']}}</span>
+                    </a>
+                    <a mat-list-item (click)="toggleMenu()" *ngIf="aside['menuPermission']['hasAccess']['isReadable'] && aside.menuPermission.submenu.length != '0'  ">
+                        <mat-icon mat-list-icon>home</mat-icon>
+                        <span *ngIf="isExpanded" class="menu-name">{{aside['menuPermission']['menuName']}}</span>
+                        <mat-icon *ngIf="!showMenu">chevron_right</mat-icon>
+                        <mat-icon *ngIf="showMenu">expand_more</mat-icon>
+                      </a>
+                      <ng-container *ngFor = "let submenu of aside.menuPermission.submenu">
+                      <mat-nav-list class="sidenav-submenu" *ngIf="showMenu">
+                        <a  mat-list-item [routerLink]="[submenu['menuPermission']['url']]" routerLinkActive="selected">
+                            <mat-icon mat-list-icon>menu</mat-icon>
+                            <span *ngIf="isExpanded" class="menu-name">{{submenu['menuPermission']['menuName']}}</span>
+                        </a>
+                    
+                        
+                      </mat-nav-list>
+                    </ng-container>
+                <!-- </mat-list-item> -->
+            </mat-nav-list>
+           
+        </ng-container>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+<!-- <mat-accordion [displayMode]="flat">
+    <div *ngFor="let submenu of aside['submenu']">
+
+      <div class="nav-head" *ngIf="navItem.pages.length === 0">
+        <a class="nav-link"
+          [routerLink]="navItem.link"
+          routerLinkActive="selected"
+          (click)="closeSidenav()">
+          
+          <span class="nav-link-text">{{navItem.heading}}</span>
+        </a>
+      </div>
+
+    
+      <mat-expansion-panel *ngIf="navItem.pages.length > 0"
+        class="mat-elevation-z0">
+        <mat-expansion-panel-header class="nav-head" [expandedHeight]="'48px'">
+          <mat-panel-title class="nav-link">
+            <mat-icon>{{navItem.icon}}</mat-icon>
+            <span class="nav-link-text">{{navItem.heading}}</span>
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+  
+        <div class="nav-section">
+        
+          <div *ngFor="let navPage of navItem.pages"
+            class="nav-item">
+            <a class="nav-link"
+              [routerLink]="navPage.link"
+              routerLinkActive="selected"
+              (click)="closeSidenav()">{{navPage.title}}</a>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </mat-accordion> -->

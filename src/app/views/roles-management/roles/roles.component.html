@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>{{data.header}}</h2>
+<mat-divider></mat-divider>
+<mat-dialog-content >
+  <form>
+      <mat-form-field>
+          <input matInput type="text" [formControl]="name" placeholder="Role Name">
+          <mat-error *ngIf="name.hasError('required')">Please Enter the valid role name</mat-error>
+      </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button cdkFocusInitial (click)="submit()">Save</button>
+</mat-dialog-actions>
